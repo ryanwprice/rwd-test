@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+    <title>RWD Device Tester</title>
+
+    <style>
+
+    	body{
+    		font-family: Helvetica, Arial, sans-serif;
+    		color: white;
+    		height: 100%;
+    		margin:2rem;
+
+    	}
+    	h1{
+    		font-size:10em;
+    		font-weight: bold;
+    		margin:0;
+    		display: none;
+    		text-shadow: 
+    			4px 4px 0 black,
+    			-4px -4px 0 black,
+    			4px -4px 0 black,
+    			-4px 4px 0 black
+    		;
+    	}
+
+    	.landscape{
+    		display: none;
+    	}
+
+    	span{
+    		text-transform: uppercase;
+    	}
+
+    	#browser-size{
+    		font-size: 2.5em;
+    		line-height: 1em
+    	}
+
+    	@media (max-width: 640px) { 
+    		#small{
+    			display: block;
+    		}
+
+    		body{
+    			background-color: red;
+    		}
+
+    	}
+
+    	@media (min-width: 641px) and (max-width: 1024px) { 
+    		#medium{
+    			display: block;
+    			text-shadow: 
+    			4px 4px 0 white,
+    			-4px -4px 0 white,
+    			4px -4px 0 white,
+    			-4px 4px 0 white
+    		;
+    		}
+
+    		body{
+    			background-color: gold;
+    			color: black;
+    		}
+    	}
+
+    	@media (min-width: 1025px) { 
+    		#large{
+    			display: block;
+    		}
+
+    		body{
+    			background-color: green;
+    		}
+
+    	 }
+
+    	 @media (orientation: landscape) {
+    	 	.portrait{
+    	 		display: none;
+    	 	}
+
+    	 	.landscape{
+    	 		display: inline;
+    	 	}
+    	 }
+
+    </style>
+
+</head>
+<body>
+	<h1 id="small">S</h1>
+	<h1 id="medium">M</h1>
+	<h1 id="large">L</h1>
+
+	<!-- <p id="screen">Screen Size</p> -->
+	<p id="browser-size">Browser Size</p>
+
+	<h2 id="landscape">Your browser is <span class="portrait">taller</span><span class="landscape">wider</span> than it is <span class="portrait">wide</span><span class="landscape">tall</span></h2>
+
+	<p id="os">OS</p>
+	<p id="pixel-ratio">ratio</p>
+	
+	<script>
+
+		//OS
+		var os_info = navigator.appVersion;
+		var  os_start = os_info.indexOf(';')+1;
+		var os_end = os_info.indexOf(')');
+		var os_version = os_info.substring(os_start,os_end);
+		// screen size
+		var screen_width = window.screen.width;
+		var screen_height = window.screen.height;
+		//browser size
+		var browser_height = window.innerHeight;
+		var browser_width = window.innerWidth;
+		//pixel ratio
+		var pixel_ratio = window.devicePixelRatio;
+
+		//strips OS_info for more specific text
+		//document.getElementById("screen").innerHTML = screen_width + "px &times; " + screen_height + "px";
+		document.getElementById("browser-size").innerHTML = browser_width + "px &times; " + browser_height + "px";
+		document.getElementById("pixel-ratio").innerHTML = "Pixel Ratio: 1:" + pixel_ratio;
+		document.getElementById("os").innerHTML = "Operating System: <br />" + os_version;
+		
+
+	</script>
+</body>
+</html>
+		
