@@ -27,7 +27,7 @@
 
 		function success(data){
 			console.log(data);
-			kph.innerHTML = `${data.coords.speed} KPH`;
+			kph.innerHTML = `heading: ${data.coords.heading} speed: ${data.coords.speed}`;
 			compass.style.transform = `rotate(${data.coords.heading}deg`;
 		};
 
