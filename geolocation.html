@@ -20,9 +20,11 @@
 <body>
 	<img id="compass" src="img/compass.png" alt="compass" />
 	<p id="kph">KPH</p>
+	<p id="heading">heading</p>
 	<script>
 		var compass = document.getElementById("compass");
 		var kph = document.getElementById("kph");
+		var heading = document.getElementById("heading");
 
 		var data = navigator.geolocation.watchPosition(success, error);
 
@@ -31,7 +33,8 @@
 		function success(data){
 			console.log(data);
 			kph.innerHTML = `${data.coords.speed} KPH`;
-			compass.style.transform = `rotate(${data.coords.heading}deg`;
+			heading.innerHTML = `heading: ${data.coords.heading}`;
+			compass.style.transform = `rotate(${data.coords.heading}deg)`;
 			//wheel.style.transform = `rotate(${angle}deg)`;
 		};
 
