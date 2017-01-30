@@ -8,8 +8,11 @@
 
     <style>
     	img{
-    		margin:2em auto;
-    		display: block;
+       		margin-left: calc(50% - 150px);
+    	}
+
+    	p{
+    		text-align: center;
     	}
     </style>
 
@@ -29,6 +32,7 @@
 			console.log(data);
 			kph.innerHTML = `heading: ${data.coords.heading} speed: ${data.coords.speed}`;
 			compass.style.transform = `rotate(${data.coords.heading}deg`;
+			//wheel.style.transform = `rotate(${angle}deg)`;
 		};
 
 		function error(){
