@@ -11,7 +11,7 @@
     	body{
     		font-family: Helvetica, Arial, sans-serif;
     		color: white;
-    		height: 100%;
+    		min-height: 100vh;
     		margin:3rem;
             background: url(img/ruler-horizontal.png) repeat-x fixed,
                 url(img/ruler-vertical.png) repeat-y fixed;
@@ -49,7 +49,7 @@
     		font-size: 2.5em;
     		line-height: 1em
     	}
-
+        /* SMALL SCREEN */
     	@media (max-width: 640px) { 
     		#small{
     			display: block;
@@ -57,6 +57,7 @@
 
     		body{
     			background-color: red;
+                background: linear-gradient(-210deg, #ff0000, #800000);
     			font-size: 75%;
     		}
 
@@ -66,7 +67,7 @@
             }
 
     	}
-
+        /* MEDIUM SCREEN */
     	@media (min-width: 641px) and (max-width: 1024px) { 
     		#medium{
     			display: block;
@@ -80,10 +81,11 @@
 
     		body{
     			background-color: gold;
+                background: linear-gradient(-210deg, #ffcc00, #806600);
     			color: black;
     		}
     	}
-
+        /* LARGE SCREEN */
     	@media (min-width: 1025px) { 
     		#large{
     			display: block;
@@ -91,6 +93,8 @@
 
     		body{
     			background-color: green;
+                background: linear-gradient(-210deg, #099a10, #033605);
+                
     		}
 
     	 }

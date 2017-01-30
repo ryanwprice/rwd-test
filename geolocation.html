@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+    <title>Test</title>
+
+    <style>
+    	img{
+    		margin:2em auto;
+    		display: block;
+    	}
+    </style>
+
+</head>
+<body>
+	<img id="compass" src="img/compass.png" alt="compass" />
+	<p id="kph">KPH</p>
+	<script>
+		var compass = document.getElementById("compass");
+		var kph = document.getElementById("kph");
+
+		var data = navigator.geolocation.watchPosition(success, error);
+
+		//navigator.geolocation.getCurrentPosition(success, onError);
+
+		function success(data){
+			console.log(data);
+			kph.innerHTML = `${data.coords.speed} KPH`;
+			compass.style.transform = `rotate(${data.coords.heading}deg`;
+		};
+
+		function error(){
+			kph.innerHTML = "Geolocation not available";
+		}
+	</script>
+</body>
+</html>
+		
