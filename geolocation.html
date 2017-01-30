@@ -30,7 +30,7 @@
 
 		function success(data){
 			console.log(data);
-			kph.innerHTML = `heading: ${data.coords.heading} speed: ${data.coords.speed}`;
+			kph.innerHTML = `${data.coords.speed} KPH`;
 			compass.style.transform = `rotate(${data.coords.heading}deg`;
 			//wheel.style.transform = `rotate(${angle}deg)`;
 		};
